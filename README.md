@@ -1,8 +1,21 @@
 
 # Api Mysql
-
+## Ferramentas necessarias
+```bash
+	->Visual studio code
+	->Mysql workbench
+	->MysqlConnector
+```
+## Conhecimentos Necessarios
+```bash
+	1-Logica de programaçao
+	2-C# estruturado
+	3-C# orintado a objetos
+	4-ASP.net 
+	5-HTML/CSS 
+	6-SQL language
+```
 ## Inicio do projeto
-
 Para iniciar esse projeto com dotnet com c# com mysql workbench, abra o prompt de comando(cmd), e va para o Desktop\ com o comando:
 ```bash
 	cd Desktop\
@@ -34,6 +47,35 @@ e digite o comando:
 ```bash
 	Code .
 ```
+apos isso o visual studio code ira abrir, senao abrir ou comando nao for reconhecido apenas abra a pasta pelo proproi vs code
+##Configuraçao da aplicaçao
+
+No vscode voce ira no arquivo startup.cs e ira comentar as seguintes linhas:
+```bash
+	 app.UseHsts();
+	 app.UseHttpsRedirection();
+```
+Seguindo a linha de modificaçoes crie duas pastas dentro do agilAPI: Data e Models
+
+Apos criar a pasta Models crie uma nova classe em c# chamada Person
+e detro desta classe ira encapsular estar tres variaveis 
+
+```bash
+	public int Id { get; set; }
+        public string tbName { get; set; }
+        public string tbIndex { get; set; }
+```	
+Logo A pasta data ira criar a classe DataContext:
+
+```bash
+	public class DataContext : DbContext // herança da classe DbContext e ira importar o Microsoft.EntityFrameworkCore;
+    {
+        public DataContext(DbContextOptions<DataContext> options) :base(options){} // construtor da classe com O DbContextOptions<DataContext>-- uma lista de dados, passando por parametro uma variavel chamada options, e 
+
+        public DbSet<Person> Persons{get; set;}
+    }
+```
+
 ## Execução da aplicação
 
 Para executar a aplicação é necessário abril o MySql workbench.
