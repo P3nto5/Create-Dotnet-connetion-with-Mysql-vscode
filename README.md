@@ -14,10 +14,26 @@ E depois criar uma pasta com o comando: (nome de sua pasta no caso agilAPP)
 e para entrar o mesmo comando acima de e depois aperte enter:
 
 ```bash
-	cd agilAPP
+	cd agilAPP\
 ```
+apos esse comando vamos para o inicio da criaçao do arquivo dotnet
 
+## Criaçao do dotnet
 
+Apos estar dentro do agilAPP\, digite este comando
+```bash
+	dotnet new webapi -o agilAPI -n agilAPI
+```
+a descriçao do comando e, a criaçao do uma nova aplicaçao web o -0 cria a pasta e o -n cria o nome da pasta
+ 
+apos isso entre na pasta 
+```bash
+	cd agilAPI\
+```
+e digite o comando:
+```bash
+	Code .
+```
 ## Execução da aplicação
 
 Para executar a aplicação é necessário abril o MySql workbench.
