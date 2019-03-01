@@ -60,7 +60,7 @@ apos isso o visual studio code ira abrir, senao abrir ou comando nao for reconhe
 	Bracket Pair Colorizer
 ```
 
-##Configuraçao da aplicaçao
+## Configuraçao da aplicaçao
 
 No vscode voce ira no arquivo startup.cs e ira comentar as seguintes linhas:
 ```bash
@@ -87,7 +87,27 @@ Logo A pasta data ira criar a classe DataContext:
         public DbSet<Person> Persons{get; set;}// Uma lista encapsulada de pessoas sendo setadas pelo banco e dados;
     }
 ```
+## Sql
+ Criar um banco de dados chamado agilAPP, mas nao preencher ou criar tabelas pois o Entity Framework ira fazer isso sozinho;
 
+## Configuraçao do .json
+
+Entre no arquivo appsettings.json e acima do logging crie issp
+```bash
+	"ConnectionStrings":{
+  	"MySqlDbConnection": "Server=localhost;Database=agilAPP;Uid=root;password=toort@"
+  	},
+```	
+## Configurando o Startup.cs
+
+  abra o terminal do vscode e digite este comando
+  ```bash
+  	dotnet add package MySql.Data.EntityFramework
+  ```
+  espere instalar e Digite o comando ctrl+p e digite >NuGet Packge Maneger: Add Package, tecle enter,
+  apos isso digite o comando MySql.Data.EntityFramworkCore
+  enter novamente e selecione a versao so seu myql
+ 
 ## Execução da aplicação
 
 Para executar a aplicação é necessário abril o MySql workbench.
