@@ -47,7 +47,19 @@ e digite o comando:
 ```bash
 	Code .
 ```
-apos isso o visual studio code ira abrir, senao abrir ou comando nao for reconhecido apenas abra a pasta pelo proproi vs code
+apos isso o visual studio code ira abrir, senao abrir ou comando nao for reconhecido apenas abra a pasta pelo proprio vs code
+## Extensões necessarias no vs code
+ ```bash
+	vscode-database
+	c#
+	c# extensions
+	Material icon Theme
+	NuGet Packge Maneger
+	TSlint
+	Path Intellisense
+	Bracket Pair Colorizer
+```
+
 ##Configuraçao da aplicaçao
 
 No vscode voce ira no arquivo startup.cs e ira comentar as seguintes linhas:
@@ -68,11 +80,11 @@ e detro desta classe ira encapsular estar tres variaveis
 Logo A pasta data ira criar a classe DataContext:
 
 ```bash
-	public class DataContext : DbContext // herança da classe DbContext e ira importar o Microsoft.EntityFrameworkCore;
-    {
-        public DataContext(DbContextOptions<DataContext> options) :base(options){} // construtor da classe com O DbContextOptions<DataContext>-- uma lista de dados, passando por parametro uma variavel chamada options, e 
+	public class DataContext : DbContext{ // herança da classe DbContext e ira importar o Microsoft.EntityFrameworkCore;
+    
+        public DataContext(DbContextOptions<DataContext> options) :base(options){} // construtor da classe com O DbContextOptions<DataContext>-- uma lista de dados, passando por parametro uma variavel chamada options
 
-        public DbSet<Person> Persons{get; set;}
+        public DbSet<Person> Persons{get; set;}// Uma lista encapsulada de pessoas sendo setadas pelo banco e dados;
     }
 ```
 
