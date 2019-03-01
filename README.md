@@ -95,7 +95,7 @@ Logo A pasta data ira criar a classe DataContext:
 Entre no arquivo appsettings.json e acima do logging crie issp
 ```bash
 	"ConnectionStrings":{
-  	"MySqlDbConnection": "Server=localhost;Database=agilAPP;Uid=root;password=toort@"
+  	"MySqlDbConnection": "Server=localhost;Database=agilAPP;Uid=root;password=(your password)"
   	},
 ```	
 ## Configurando o Startup.cs
@@ -105,8 +105,42 @@ Entre no arquivo appsettings.json e acima do logging crie issp
   	dotnet add package MySql.Data.EntityFramework
   ```
   espere instalar e Digite o comando ctrl+p e digite >NuGet Packge Maneger: Add Package, tecle enter,
-  apos isso digite o comando MySql.Data.EntityFramworkCore
-  enter novamente e selecione a versao so seu myql
+  apos adcione o MySql.Data.EntityFramworkCore e MySql.Data.EntityFramworkCore.Design
+  enter novamente e selecione a versao so seu mysql no caso a versao 8.0.15
+  e por ultimo aperto no resto que ira aparecer no canto inferior da tela
+  
+  apos isso dentro  do metodo ConfigureService digite esse comando
+  ```bash
+  	 services.AddDbContext<DataContext>(x =>x.UseMySQL(Configuration.GetConnectionString("MySqlDbConnection")));
+  ```
+  ira aparecer linhas vermelhas abaixo de algumas palavras reservadas mas e so importar Microsoft.EntityFrameworkCore;
+  
+## Configurando o controller
+Dentro da pasta controller entre no arquivo ValuesController.cd 
+e adcione estas linhas de codigo 
+ ```bash
+  	 private readonly DataContext _context;
+        public ValuesController(DataContext context)
+        {
+            this._context = context;
+
+        }
+        // GET api/values
+        [HttpGet]
+        public async Task<IActionResult> GetValues()
+        {
+            var persons = await _context.Persons.ToListAsync();
+            return Ok(persons);
+        }
+
+        // GET api/values/5
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetValue(int id)
+        {
+            var person =await _context.Persons.FirstOrDefaultAsync(x => x.Id == id);
+            return Ok(person);
+        }
+  ```
  
 ## Execução da aplicação
 
